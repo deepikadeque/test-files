@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+
+  <div class="foo" id="foo">foo</div>
+  <!--'aria-allowed-attr' failing when generic elements use 'aria-label' and 'aria-labelledby', on the following elements
+
+"audio,applet, canvas, dl, embed, iframe, input, label, meter, object, svg, video" -->
+  <div id="target" aria-label="hello world"></div>
+  <div id="target" role="code" aria-label="hello world"></div>
+  <span aria-label="value" id="one"></span>
+<strong aria-label="value" id="two"></strong>
+<kbd aria-label="value" id="three"></kbd>
+<abbr aria-label="value" id="four"></abbr>
+<custom-elm aria-label="value" id="five"></custom-elm>
+<audio aria-label="value" id="pass1" controls></audio>
+<iframe aria-label="value" id="pass2" src="/test/playground.html"></iframe>
+<canvas aria-label="value" id="pass3"></canvas>
+<dl aria-label="value" id="pass4"></dl>
+<input aria-label="value" id="pass5"/>
+<label aria-label="value" id="pass6"></label>
+<meter aria-label="value" id="pass7"></meter>
+<object aria-label="value" id="pass8"></object>
+<svg aria-label="value" id="pass9"></svg>
+<video aria-label="value" id="pass10" controls></video>
+    <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>

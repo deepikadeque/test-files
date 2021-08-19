@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+
+  <div class="foo" id="foo">foo</div>
+  <!--test snippet causing violation:-->
+<input type="text" id="target" role="presentation none"/>
+<!--test snippet showing needs review:-->
+<div id="target" role="none presentation">Foo</div>
+ <div id="target" role="presentation none">Foo</div>
+  <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>
