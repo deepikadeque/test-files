@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+
+  <div class="foo" id="foo">foo</div>
+  
+  <div role="list"> <div role="listitem"> <div role="group"> <div role="listitem" id="target"></div></div></div></div>
+  <div role="menu"><div role="group"><p role="listitem" id="target">Nothing here.</p></div></div>
+
+  <div role="menu"><div role="menuitem"><div role="group"><div role="menuitem" id="target"></div></div></div></div>
+    
+    <div role="list"><div role="listitem"><div role="none"><div role="listitem" id="target"></div></div></div></div>
+  <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>

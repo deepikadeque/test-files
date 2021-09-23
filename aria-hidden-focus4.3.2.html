@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+
+  <div class="foo" id="foo">foo</div>
+  <fieldset disabled="disabled" aria-hidden="true">
+    <input />
+  </fieldset>
+  <fieldset id="target" disabled aria-hidden="true"><legend><input /></legend></fieldset>
+  <fieldset id="target" aria-hidden="true"><input /></fieldset>
+  <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>
