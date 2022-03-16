@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+  <div>
+    <div class="overlay">
+      <p>Explore the World</p>
+  </div>
+  <style>
+    
+  ::before {
+    content: 'text';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    height: 5%;
+  }
+  </style> </span>
+  <style>
+  .overlay {
+    position: relative;
+}
+.overlay::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500%;
+    background-color: black;
+    opacity: 0.3;
+}
+p {
+    color: white;
+    opacity: 1;
+    z-index: 999;
+} 
+</style>
+</div>        
+  <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>

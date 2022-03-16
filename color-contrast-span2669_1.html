@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+  <p class="truncated">
+    This text will pass! And more text here...
+  </p>
+
+  <p class="truncated">
+    <span>This text will fail! And more text here...</span>
+  </p>
+
+    <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>

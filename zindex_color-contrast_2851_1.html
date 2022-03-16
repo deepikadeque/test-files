@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+  <div id="1" style="width:40px;height:40px">
+    <div id="target" style="width:40px;height:40px;z-index:100">hello world</div>
+    </div>
+    <div id="2" style="width:40px;height:40px;margin-top:-33px;">
+    <div id="3" style="width:40px;height:40px;">Some text</div>
+    </div>
+
+    <div id="1" style="position: relative; padding: 60px 0;">Some text</div>
+    <section id="2" style="position: relative; padding: 60px 0;">
+    <div id="3" style="margin-top: -120px;">
+    <h3 id="target">Hi, Hello World.</h3>
+    </div>
+    </section>
+
+    <div id="1">Some text</div>
+        <div id="2" style="position: absolute; top: 0; left: 0;">Some text</div>
+        <div id="3" style="position: absolute; top: 0; left: 0;">
+        <div id="4" style="position: absolute; top: 0; left: 0;">Some text</div>
+        <div id="5">
+        <div id="target">Some text</div>
+        </div>
+        </div>
+
+        <div id="1" style="width: 50px; height: 50px; position: relative;">
+          <div id="2" style="width: 50px; height: 50px; float: left;">
+          <div id="3" style="width: 50px; height: 50px;">
+          <div id="4" style="width: 50px; height: 50px;">
+          <div id="target" style="width: 50px; height: 50px; position: relative;"></div>
+          </div>
+          </div>
+          <div id="5" style="width: 50px; height: 50px; position: absolute; top:0"></div>
+          </div>
+          </div>
+    <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>

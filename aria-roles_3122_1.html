@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+  <div>
+    <div id="pass91" role="comment" aria-level="1" aria-posinset="1" aria-setsize="16"> ok </div>
+<!--aria-required-children_suggession role-->
+<div role="suggestion" id="pass8">
+  <span role="deletion">option</span>
+  <span role="insertion">option</span>
+</div>
+
+<div role="suggestion" id="fail8"></div>
+<!--aria-allowed-attr_suggesion and mark role-->
+    <div role="mark" aria-label="value" id="fail31">fail</div>
+<div role="mark" aria-labelledby="value" id="fail32">fail</div>
+<div role="suggestion" aria-label="value" id="fail33">fail</div>
+<div role="suggestion" aria-labelledby="value" id="fail34">fail</div>
+
+<!--aria-roles passes-->
+<div role="comment" id="pass114">ok</div>
+  <div role="mark" id="pass115">ok</div>
+  <div role="suggestion" id="pass116">ok</div>
+  
+  <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>
