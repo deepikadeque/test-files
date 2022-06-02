@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+
+  <div class="foo" id="foo">foo</div>
+
+  <nav role="" id="pass-navnone-1">ok</nav>
+  <nav role="presentation" id="pass-navnone-2">ok</nav>
+  <!-- nav role implemented, this is the fix here -->
+  <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>

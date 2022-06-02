@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en" xml:lang="en">
+<head>
+
+<title>TITLE</title>
+
+<script src="https://unpkg.com/axe-core@4.4.1/axe.min.js"></script>
+
+</head>
+<body>
+
+<section role="doc-chapter">
+<p role="doc-endnote" epub:type="rearnote">bla bla</p>
+</section>
+<!-- description saying deprecated role with what is deprecated, not with simply $data.value-->
+<script type="javascript">
+    window.axe
+    .run()
+    .then(results => {
+        console.log(JSON.stringify(results.violations, null, 4));
+        console.log(results.violations.length);
+    })
+    .catch(err => {
+      console.error('Something bad happened:', err.message);
+    });
+</script>
+</body>
+</html>

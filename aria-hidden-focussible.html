@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>O hai</title>
+
+  <div class="foo" id="foo">foo</div>
+  <div aria-hidden="true">
+    <a href="/" style="position:absolute; top:-999em" onfocus="document.querySelector('input').focus()">First link</a>
+  </div>
+  <input/>
+  
+  <div aria-hidden="true">
+    <button tabindex="-1">Some button</button>
+  </div>
+  
+  <!--False passive and incomplete issue, means issue showing in "needs review"-->
+  
+     <script src="/axe.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      axe.run(document, function(err, res) {
+        console.log(res.violations);
+        res.incomplete.forEach(function(issue) {
+          console.log(issue);
+        });
+      });
+    });
+  </script>
+</html>
